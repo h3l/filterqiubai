@@ -58,23 +58,4 @@ if __name__ == "__main__":
     base_url = "http://qiushibaike.com/hot/page/"
     for page_num in range(1,36):
         url = base_url + str(page_num)
-        print url
         create_html(url,page_num)
-#     content = urllib2.urlopen(base_url).readlines()
-# #    content = open("/home/xidianlz/b.html").readlines()
-#     final = filter_enter(content)
-
-#     soup = BeautifulSoup(final)
-#     items = soup.findAll("div", attrs={"class":"block untagged"})
-#     filter_data = filter_keywords_pic(items)
-
-#     final_data = []
-#     for item in filter_data:
-#         to_encode_text = item.findAll("div",title=re.compile(".*"))[0].contents
-#         encoded_text = [unicode(i) for i in to_encode_text]
-#         final_data.append("".join(encoded_text))
-
-#     final_html = ["<p>"+i+"</p><br>" for i in final_data]
-#     text_tesult = "".join(final_html)
-#     result = open("/home/xidianlz/code/python/result.html","w")
-#     result.write(text_tesult.encode("utf8"))
