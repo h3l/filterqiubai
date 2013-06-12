@@ -49,10 +49,10 @@ def create_html(url, html_num):
         encoded_text = [unicode(i) for i in to_encode_text]
         final_data.append("".join(encoded_text))
     #生成html文件
-    final_html = ["<p>"+i+"</p><br>" for i in final_data]
-    text_result = ""
-    text_result = u'<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>'+text_result
+    final_html = ["<p>"+i+"</p><hr>" for i in final_data]
     text_result = "".join(final_html)
+    #为生成的html添加头部信息，包括编码以及css文件的链接
+    text_result = u'<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link href="qiubai.css" rel="stylesheet" type="text/css"></head>'+text_result
     text_result += u"<a href=" + unicode(html_num + 1) + u".html>下一页</a>"
     html_name = u"/home/xidianlz/code/python/"+str(html_num)+u".html"
     result = open(html_name, "w")
@@ -60,7 +60,8 @@ def create_html(url, html_num):
     result.close()
 
 if __name__ == "__main__":
-    base_url = "http://qiushibaike.com/hot/page/"
+    base_url = "http://qiushibaike.com/8hr/page/"
     for page_num in range(1, 36):
         url = base_url + str(page_num)
+        print url
         create_html(url, page_num)
