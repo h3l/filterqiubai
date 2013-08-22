@@ -40,7 +40,7 @@ def create_html(url, html_num):
     text_without_enter = filter_enter(content)
     soup = BeautifulSoup(text_without_enter)
     #找出所有的糗事条目
-    items = soup.findAll("div", attrs={"class": "block untagged"})
+    items = soup.findAll("div", attrs={"class": "block untagged mb15 bs2"})
     filter_data = filter_keywords_pic(items)
     #过滤出最终糗事的部分
     final_data = []
