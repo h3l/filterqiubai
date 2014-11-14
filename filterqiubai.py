@@ -1,7 +1,8 @@
 #!/usr/bin/pytho
 #coding=utf-8
 
-""" author:xidianlz
+"""
+    author:xidianlz
     data:6.7
 
 过滤糗事百科的某些关键字，并过滤掉图片以及广告等
@@ -30,7 +31,7 @@ def filter_keywords_pic(data):
     data_filter_keys = [item for item in data if "delete" not in item]
     #过滤掉含有图片的条目,
     data_filter_pic = [item for item in data_filter_keys \
-    if "pictures" not in str(item)]
+                        if "pictures" not in str(item)]
     return data_filter_pic
 
 
@@ -54,7 +55,7 @@ def create_html(url, html_num):
     #为生成的html添加头部信息，包括编码以及css文件的链接
     text_result = u'<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link href="qiubai.css" rel="stylesheet" type="text/css"></head>'+text_result
     text_result += u"<a href=" + unicode(html_num + 1) + u".html>下一页</a>"
-    html_name = u"/home/xidianlz/code/python/"+str(html_num)+u".html"
+    html_name = u"/home/yourname/youpath"+str(html_num)+u".html"
     result = open(html_name, "w")
     result.write(text_result.encode("utf8"))
     result.close()
